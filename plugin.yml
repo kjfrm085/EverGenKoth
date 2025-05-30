@@ -1,0 +1,85 @@
+name: EverGenKoth
+version: 0.1
+main: com.kjfrm085.evergenkoth.EverGenKoth
+author: kjfrm085#0
+api-version: 1.21
+description: A King of the Hill (Koth) plugin inspired by zkoth.
+commands:
+  koth:
+    description: Main command for EverGenKoth plugin.
+    usage: /<command> [subcommand]
+    permission: evergenkoth.command.koth
+    permission-message: You do not have permission to use this command.
+permissions:
+  evergenkoth.*:
+    description: Gives access to all EverGenKoth commands and features.
+    children:
+      evergenkoth.admin: true
+      evergenkoth.command.*: true
+      evergenkoth.user.*: true
+    default: op
+  evergenkoth.admin:
+    description: Grants all administrative commands for EverGenKoth.
+    children:
+      evergenkoth.command.create: true
+      evergenkoth.command.delete: true
+      evergenkoth.command.setpos: true
+      evergenkoth.command.start: true
+      evergenkoth.command.stop: true
+      evergenkoth.command.reload: true
+    default: op
+  evergenkoth.command.koth:
+    description: Allows use of the base /koth command.
+    default: true
+  evergenkoth.command.*:
+    description: Grants access to all EverGenKoth commands.
+    children:
+      evergenkoth.command.create: true
+      evergenkoth.command.delete: true
+      evergenkoth.command.setpos: true
+      evergenkoth.command.start: true
+      evergenkoth.command.stop: true
+      evergenkoth.command.list: true
+      evergenkoth.command.info: true
+      evergenkoth.command.join: true
+      evergenkoth.command.leave: true
+      evergenkoth.command.reload: true
+    default: op
+  evergenkoth.command.create:
+    description: Allows creating new Koth arenas.
+    default: op
+  evergenkoth.command.delete:
+    description: Allows deleting Koth arenas.
+    default: op
+  evergenkoth.command.setpos:
+    description: Allows setting Koth arena boundaries.
+    default: op
+  evergenkoth.command.start:
+    description: Allows starting a Koth event.
+    default: op
+  evergenkoth.command.stop:
+    description: Allows stopping the current Koth event.
+    default: op
+  evergenkoth.command.list:
+    description: Allows listing all configured Koth arenas.
+    default: true
+  evergenkoth.command.info:
+    description: Allows viewing detailed information about a Koth arena.
+    default: true
+  evergenkoth.command.join:
+    description: Allows players to join an active Koth event.
+    default: true
+  evergenkoth.command.leave:
+    description: Allows players to leave an active Koth event.
+    default: true
+  evergenkoth.command.reload:
+    description: Allows reloading the plugin configuration.
+    default: op
+  evergenkoth.user.*:
+    description: Gives access to all user-level EverGenKoth features.
+    children:
+      evergenkoth.command.list: true
+      evergenkoth.command.info: true
+      evergenkoth.command.join: true
+      evergenkoth.command.leave: true
+    default: true
